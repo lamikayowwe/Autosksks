@@ -17,14 +17,14 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
   let startIdx = (page - 1) * commandsPerPage;
   let endIdx = startIdx + commandsPerPage;
 
-  let helpMessage = 'Commands:\n\n';
+  let helpMessage = 'AVAILABLE COMMANDS:\n\n';
   for (let i = startIdx; i < Math.min(endIdx, commands.length); i++) {
-    helpMessage += `${i + 1}. ${commands[i]}\n`;
+    helpMessage += `\n╭─❍\n➠ ${i + 1}. ${commands[i]}\n╰───────────⟡\n`;
   }
 
-  helpMessage += '\nEvent:\n\n';
+  helpMessage += '\nAVAILABLE EVENTS:\n\n';
   eventCommands.forEach((eventCommand, index) => {
-    helpMessage += `${index + 1}. ${eventCommand}\n`;
+    helpMessage += `\n╭─❍\n➠ ${index + 1}. ${eventCommand}\n╰───────────⟡\n`;
   });
 
   if (commands.length > endIdx) {
