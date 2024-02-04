@@ -19,12 +19,12 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
 
   let helpMessage = 'AVAILABLE COMMANDS:\n\n';
   for (let i = startIdx; i < Math.min(endIdx, commands.length); i++) {
-    helpMessage += `\n${i + 1}. ${commands[i]}\n`;
+    helpMessage += `${i + 1}. ${commands[i]}\n`;
   }
 
   helpMessage += '\nAVAILABLE EVENTS:\n\n';
   eventCommands.forEach((eventCommand, index) => {
-    helpMessage += `\n${index + 1}. ${eventCommand}\n`;
+    helpMessage += `${index + 1}. ${eventCommand}\n`;
   });
 
   if (commands.length > endIdx) {
