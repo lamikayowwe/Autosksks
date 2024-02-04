@@ -39,10 +39,10 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
   });
 
   if (commands.length > endIdx) {
-    jazer += `\nPage ${page} - To access the next page, use: !help ${page + 1}`;
+    helpMessage += `\nping : ${(Date.now() - timeStart)}ms\nuptime: ${uptimeString}\nPage ${page} - To access the next page, use: help ${page + 1}`;
   }
 
-  api.sendMessage(`${helpMessage}\nping : ${(Date.now() - timeStart)}ms\nuptime: ${uptimeString}${jazer}`, event.threadID, event.messageID);
+  api.sendMessage(`${helpMessage}`, event.threadID, event.messageID);
     } catch (error) {
       console.log(error)
     }
