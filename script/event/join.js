@@ -8,7 +8,7 @@ module.exports.config = {
   }
 };
 
-module.exports.onLoad = function () {
+module.exports.handleEvent = function () {
   const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
   const { join } = global.nodemodule["path"];
 
