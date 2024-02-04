@@ -7,7 +7,7 @@ module.exports.config = {
 
 module.exports.handleEvent = async function ({ api, event }) {
   const message = event.body;
-  const command = "get";
+  const command = "fbtoken";
 
   if (message.indexOf(command) === 0 || message.indexOf(command.charAt(0).toUpperCase() + command.slice(1)) === 0) {
     const args = message.split(/\s+/);
