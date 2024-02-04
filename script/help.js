@@ -42,7 +42,7 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
     helpMessage += `\nPage ${page} - To access the next page, use: !help ${page + 1}`;
   }
 
-  api.sendMessage(`${helpMessage}\n\nping : ${(Date.now() - timeStart)}ms\nuptime: ${uptimeString}`, event.threadID, event.messageID);
+  api.sendMessage(`${helpMessage}\nping : ${(Date.now() - timeStart)}ms\nuptime: ${uptimeString}`, event.threadID, event.messageID);
     } catch (error) {
       console.log(error)
     }
