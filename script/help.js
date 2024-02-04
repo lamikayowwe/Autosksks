@@ -26,7 +26,7 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
       const minutesString = minutes === 1 ? "minute" : "minutes";
       const secondsString = seconds === 1 ? "second" : "seconds";
 
-      const uptimeString = `${hours > 0 ? `${hours} ` : ''}${minutes > 0 ? `${minutes} ` : ''}${seconds} `;
+      const uptimeString = `${hours > 0 ? `${hours} ` : ''} : ${minutes > 0 ? `${minutes} ` : ''} : ${seconds} `;
 
   let helpMessage = 'AVAILABLE COMMANDS:\n\n';
   for (let i = startIdx; i < Math.min(endIdx, commands.length); i++) {
