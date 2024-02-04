@@ -8,7 +8,7 @@ module.exports.config = {
   }
 };
 
-module.exports.handleEvent = function () {
+module.exports.onLoad = function () {
   const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
   const { join } = global.nodemodule["path"];
 
@@ -22,7 +22,7 @@ module.exports.handleEvent = function () {
 }
 
 
-module.exports.run = async function({ api, event }) {
+module.exports.handleEvent = async function({ api, event }) {
   const { join } = global.nodemodule["path"];
   const { threadID } = event;
   if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
