@@ -16,6 +16,17 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
 
   let startIdx = (page - 1) * commandsPerPage;
   let endIdx = startIdx + commandsPerPage;
+  let time = process.uptime();
+  let hours = Math.floor(time / (60 * 60));
+  let minutes = Math.floor((time % (60 * 60)) / 60);
+  let seconds = Math.floor(time % 60);
+  const timeStart = Date.now();
+
+  const hoursString = hours === 1 ? "hour" : "hours";
+      const minutesString = minutes === 1 ? "minute" : "minutes";
+      const secondsString = seconds === 1 ? "second" : "seconds";
+
+      const uptimeString = `${hours > 0 ? `${hours} ` : ''}${minutes > 0 ? `${minutes} ` : ''}${seconds} `;
 
   let helpMessage = 'AVAILABLE COMMANDS:\n\n';
   for (let i = startIdx; i < Math.min(endIdx, commands.length); i++) {
@@ -31,7 +42,7 @@ module.exports.run = async function ({ api, event, enableCommands, args }) {
     helpMessage += `\nPage ${page} - To access the next page, use: !help ${page + 1}`;
   }
 
-  api.sendMessage(helpMessage, event.threadID, event.messageID);
+  api.sendMessage(`${helpMessage}\n\nping : ${(Date.now() - timeStart)}ms\nuptime: ${uptimeString}`, event.threadID, event.messageID);
     } catch (error) {
       console.log(error)
     }
